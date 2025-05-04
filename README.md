@@ -17,3 +17,10 @@ python main.py
 - Arrow keys to move the snake.
 - Eat food to grow.
 - Avoid colliding with yourself.
+
+## To add
+
+-  Border Kills
+-  Scores
+-  Difficulties
+-  Skins
