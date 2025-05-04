@@ -2,8 +2,9 @@
  handles events, and manages the game loop. '''
 
 import pygame
-from Snake2DGame.config import SCREEN_WIDTH, SCREEN_HEIGHT, BG_COLOR, FPS
 from game.game_manager import GameManager
+from Snake2DGame.config import SCREEN_WIDTH, SCREEN_HEIGHT, BG_COLOR, FPS
+
 
 def main():
     '''Main function to initialize the game and start the game loop.'''
