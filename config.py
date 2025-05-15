@@ -8,3 +8,10 @@ SNAKE_COLOR = (0, 255, 0)
 FOOD_COLOR = (255, 0, 0)
 BG_COLOR = (0, 0, 0)
 GRID_COLOR = (40, 40, 40)
+WHITE = (255, 255, 255)
+
+# Font
+FONT_SIZE = 24
+
+# Game settings
+INITIAL_SPEED = FPS

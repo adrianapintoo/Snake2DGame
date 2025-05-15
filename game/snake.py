@@ -1,25 +1,26 @@
 import pygame
-from Snake2DGame.config import CELL_SIZE, SCREEN_WIDTH, SCREEN_HEIGHT, SNAKE_COLOR
+from config import CELL_SIZE, SCREEN_WIDTH, SCREEN_HEIGHT
 
 class Snake:
-    def __init__(self):
+    def __init__(self, color=(0, 255, 0)):  # Default green
         self.body = [(5, 5)]
         self.direction = (1, 0)
-        self.grow_next = False
+        self.grow_segments = 0
+        self.color = color
 
     def move(self):
         head_x, head_y = self.body[0]
         dx, dy = self.direction
-        new_head = ((head_x + dx) % (SCREEN_WIDTH // CELL_SIZE), 
-                    (head_y + dy) % (SCREEN_HEIGHT // CELL_SIZE))
+        new_head = (head_x + dx, head_y + dy)  # NO wrapping here, just add direction
         self.body.insert(0, new_head)
-        if not self.grow_next:
-            self.body.pop()
-        else:
-            self.grow_next = False
 
-    def grow(self):
-        self.grow_next = True
+        if self.grow_segments > 0:
+            self.grow_segments -= 1
+        else:
+            self.body.pop()
+
+    def grow(self, amount=1):
+        self.grow_segments += amount
 
     def change_direction(self, new_dir):
         if (new_dir[0] != -self.direction[0] or new_dir[1] != -self.direction[1]):
@@ -32,6 +33,11 @@ class Snake:
         for segment in self.body:
             pygame.draw.rect(
                 screen,
-                SNAKE_COLOR,
+                self.color,
                 (segment[0] * CELL_SIZE, segment[1] * CELL_SIZE, CELL_SIZE, CELL_SIZE)
             )
+
+    def set_color(self, color):
+        self.color = color
+
+

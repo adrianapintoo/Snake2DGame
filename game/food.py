@@ -1,6 +1,6 @@
 import random
 import pygame
-from Snake2DGame.config import CELL_SIZE, SCREEN_WIDTH, SCREEN_HEIGHT, FOOD_COLOR
+from config import CELL_SIZE, SCREEN_WIDTH, SCREEN_HEIGHT, FOOD_COLOR
 
 class Food:
     def __init__(self):
